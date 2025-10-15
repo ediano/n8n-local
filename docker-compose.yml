@@ -1,0 +1,54 @@
+services:
+  n8n:
+    build:
+      context: .
+      dockerfile: Dockerfile.node
+    container_name: ai_n8n
+    ports:
+      - "5678:5678"
+    volumes:
+      - n8n_data:/usr/src/app
+    environment:
+      - DB_TYPE=postgresdb
+      - DB_POSTGRESDB_DATABASE=n8n_base
+      - DB_POSTGRESDB_HOST=postgres
+      - DB_POSTGRESDB_PORT=5432
+      - DB_POSTGRESDB_USER=admin
+      - DB_POSTGRESDB_SCHEMA=public
+      - DB_POSTGRESDB_PASSWORD=admin
+    depends_on:
+      - "postgres"
+
+  postgres:
+    image: postgres:18.0
+    container_name: ai_postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=n8n_base
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: "1GB"
+
+  ollama:
+    image: ollama/ollama:0.12.5
+    container_name: ai_ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+
+volumes:
+  n8n_data:
+  postgres_data:
+  ollama_data:
+
+networks:
+  default:
+    name: ai_network_default

@@ -1,0 +1,10 @@
+FROM node:22
+
+RUN apt update && apt upgrade -y && apt install -y curl wget fish \
+  && chsh -s $(which fish)
+
+WORKDIR /usr/src/app
+RUN npm install n8n -g
+EXPOSE 5678
+
+CMD [ "sleep", "infinity" ]
