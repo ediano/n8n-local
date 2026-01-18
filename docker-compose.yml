@@ -9,13 +9,14 @@ services:
     volumes:
       - n8n_data:/usr/src/app
     environment:
+      - N8N_BASIC_AUTH_ACTIVE=false
       - DB_TYPE=postgresdb
       - DB_POSTGRESDB_DATABASE=n8n_base
       - DB_POSTGRESDB_HOST=postgres
       - DB_POSTGRESDB_PORT=5432
       - DB_POSTGRESDB_USER=admin
-      - DB_POSTGRESDB_SCHEMA=public
       - DB_POSTGRESDB_PASSWORD=admin
+      - DB_POSTGRESDB_SCHEMA=public
     depends_on:
       - "postgres"
 
