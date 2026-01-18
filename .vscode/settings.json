@@ -1,3 +1,11 @@
 {
-  "cSpell.words": ["ollama", "postgres", "POSTGRESDB"]
+  "cSpell.words": [
+    "chsh",
+    "cpus",
+    "ollama",
+    "postgres",
+    "postgresdb",
+    "POSTGRESDB",
+    "postgresql"
+  ]
 }

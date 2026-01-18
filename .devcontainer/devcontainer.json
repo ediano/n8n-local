@@ -2,5 +2,5 @@
   "name": "AI N8N",
   "dockerComposeFile": ["../docker-compose.yml", "docker-compose.yml"],
   "service": "n8n",
-  "workspaceFolder": "/usr/src/app"
+  "workspaceFolder": "/home/node/.n8n"
 }

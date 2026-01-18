@@ -2,5 +2,5 @@ version: "3.8"
 services:
   n8n:
     volumes:
-      - .:/usr/src/app:cached
+      - .:/home/node/.n8n:cached
     command: sleep infinity
