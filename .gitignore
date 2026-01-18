@@ -1,3 +1,4 @@
+# Temp
 temp/*
 !temp/.gitkeep
 
@@ -16,3 +17,6 @@ Thumbs.db
 # IDE
 .vscode/settings.json
 .idea/
+
+# Config
+config
