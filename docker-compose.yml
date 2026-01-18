@@ -8,6 +8,7 @@ services:
       - n8n_data:/home/node/.n8n
     environment:
       - GENERIC_TIMEZONE=America/Sao_Paulo
+      - N8N_ENCRYPTION_KEY=43725175-d322-4041-a4cf-6527dbe5ee3d
       - DB_TYPE=postgresdb
       - DB_POSTGRESDB_DATABASE=n8n_base
       - DB_POSTGRESDB_HOST=postgres
