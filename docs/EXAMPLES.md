@@ -21,6 +21,10 @@ Este documento contém exemplos práticos de como usar o ambiente n8n local.
 
 ```bash
 # Ver logs do n8n durante execução
+./n8n.sh logs n8n
+# ou
+docker compose logs -f n8n
+# ou (v1)
 docker-compose logs -f n8n
 ```
 
@@ -78,7 +82,13 @@ DATE=$(date +%Y%m%d_%H%M%S)
 BACKUP_DIR="./backups"
 mkdir -p $BACKUP_DIR
 
-docker-compose exec -T postgres pg_dump -U admin n8n_base > "$BACKUP_DIR/n8n_backup_$DATE.sql"
+# Docker Compose v2
+docker compose exec -T postgres pg_dump -U admin n8n_base > "$BACKUP_DIR/n8n_backup_$DATE.sql"
+# ou v1
+# docker-compose exec -T postgres pg_dump -U admin n8n_base > "$BACKUP_DIR/n8n_backup_$DATE.sql"
+
+# Ou use o script helper
+# ./n8n.sh backup
 
 echo "Backup criado: n8n_backup_$DATE.sql"
 

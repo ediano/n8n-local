@@ -48,31 +48,76 @@ O projeto utiliza Docker Compose para orquestrar dois serviços principais:
 
 - Docker (versão 20.10 ou superior)
 - Docker Compose (versão 2.0 ou superior)
+  - **Nota**: Este projeto suporta tanto `docker compose` (v2, integrado ao Docker) quanto `docker-compose` (v1, standalone)
 - VS Code com extensão Dev Containers (opcional, para desenvolvimento)
+
+### ⚙️ Verificar Instalação
+
+```bash
+# Verificar Docker
+docker --version
+
+# Verificar Docker Compose
+docker compose version  # v2 (recomendado)
+# ou
+docker-compose --version  # v1 (legado)
+```
 
 ## 🚀 Como Usar
 
-### Iniciar o Ambiente
+### Usando o Script Helper (Recomendado)
+
+O projeto inclui um script helper que facilita todas as operações:
 
 ```bash
+# Tornar o script executável (primeira vez)
+chmod +x n8n.sh
+
+# Ver todos os comandos disponíveis
+./n8n.sh help
+
+# Iniciar ambiente
+./n8n.sh start
+
+# Ver status
+./n8n.sh status
+
+# Ver logs
+./n8n.sh logs
+
+# Parar ambiente
+./n8n.sh stop
+```
+
+### Usando Docker Compose Diretamente
+
+#### Iniciar o Ambiente
+
+```bash
+docker compose up -d
+# ou (v1)
 docker-compose up -d
 ```
 
-### Acessar o n8n
+#### Acessar o n8n
 
 Após iniciar os containers, acesse o n8n em:
 
 - **URL**: http://localhost:5678
 
-### Parar o Ambiente
+#### Parar o Ambiente
 
 ```bash
+docker compose down
+# ou (v1)
 docker-compose down
 ```
 
-### Parar e Remover Volumes (⚠️ Remove todos os dados)
+#### Parar e Remover Volumes (⚠️ Remove todos os dados)
 
 ```bash
+docker compose down -v
+# ou (v1)
 docker-compose down -v
 ```
 
@@ -111,6 +156,20 @@ DB_POSTGRESDB_SCHEMA: public
 DB_POSTGRESDB_PASSWORD: admin
 ```
 
+#### 🔧 Personalizar Configurações
+
+Para personalizar as configurações, use um arquivo `.env`:
+
+```bash
+# Copiar arquivo de exemplo
+cp .env.example .env
+
+# Editar com suas configurações
+nano .env  # ou use seu editor preferido
+```
+
+O arquivo `.env.example` contém todas as variáveis disponíveis com documentação.
+
 ## 📂 Estrutura do Projeto
 
 ```
@@ -119,10 +178,22 @@ DB_POSTGRESDB_PASSWORD: admin
 │   ├── devcontainer.json       # Configuração do Dev Container
 │   └── docker-compose.yml      # Override para desenvolvimento
 ├── .vscode/                    # Configurações do VS Code
+├── docs/                       # Documentação completa
+│   ├── ARCHITECTURE.md         # Arquitetura técnica
+│   ├── SETUP.md                # Guia de instalação
+│   ├── EXAMPLES.md             # Exemplos práticos
+│   ├── FAQ.md                  # Perguntas frequentes
+│   ├── SECURITY.md             # Guia de segurança
+│   └── README.md               # Índice da documentação
 ├── docker-compose.yml          # Configuração principal dos serviços
 ├── Dockerfile.node             # Dockerfile customizado para n8n
+├── n8n.sh                      # Script helper para operações comuns
+├── .env.example                # Exemplo de configuração de ambiente
 ├── .gitignore                  # Arquivos ignorados pelo Git
 ├── LICENSE                     # Licença MIT
+├── QUICKSTART.md               # Guia de início rápido
+├── CONTRIBUTING.md             # Guia para contribuidores
+├── CHANGELOG.md                # Histórico de mudanças
 └── README.md                   # Este arquivo
 ```
 
@@ -252,12 +323,16 @@ Uma rede Docker customizada é criada:
 1. Verifique se o PostgreSQL está rodando:
 
    ```bash
-   docker-compose logs postgres
+   ./n8n.sh logs postgres
+   # ou
+   docker compose logs postgres
    ```
 
 2. Verifique os logs do n8n:
    ```bash
-   docker-compose logs n8n
+   ./n8n.sh logs n8n
+   # ou
+   docker compose logs n8n
    ```
 
 ### Erro de conexão com o banco de dados
@@ -265,7 +340,9 @@ Uma rede Docker customizada é criada:
 1. Certifique-se de que o PostgreSQL está completamente inicializado
 2. Reinicie os containers:
    ```bash
-   docker-compose restart
+   ./n8n.sh restart
+   # ou
+   docker compose restart
    ```
 
 ### Resetar o ambiente
@@ -273,8 +350,10 @@ Uma rede Docker customizada é criada:
 Para começar do zero:
 
 ```bash
-docker-compose down -v
-docker-compose up -d
+./n8n.sh reset  # Cria backup antes de resetar
+# ou manualmente
+docker compose down -v
+docker compose up -d
 ```
 
 ## 📚 Recursos Adicionais

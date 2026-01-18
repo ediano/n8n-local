@@ -9,11 +9,16 @@ Guia de 5 minutos para começar a usar o n8n local.
 Certifique-se de ter instalado:
 
 - Docker
-- Docker Compose
+- Docker Compose (v2 recomendado, v1 também suportado)
 
 ```bash
 # Verificar instalação
 docker --version
+
+# Docker Compose v2 (recomendado)
+docker compose version
+
+# ou Docker Compose v1 (legado)
 docker-compose --version
 ```
 
@@ -24,10 +29,18 @@ docker-compose --version
 git clone https://github.com/seu-usuario/n8n-local.git
 cd n8n-local
 
-# Iniciar ambiente
+# Opção 1: Usar script helper (Recomendado)
+chmod +x n8n.sh
+./n8n.sh start
+
+# Opção 2: Usar Docker Compose diretamente
+docker compose up -d
+# ou (v1)
 docker-compose up -d
 
 # Aguardar containers iniciarem (30 segundos)
+docker compose ps
+# ou (v1)
 docker-compose ps
 ```
 
@@ -71,17 +84,52 @@ http://localhost:5678
 
 ## 🔧 Comandos Úteis
 
+### Com Script Helper
+
+```bash
+# Ver todos os comandos disponíveis
+./n8n.sh help
+
+# Ver logs
+./n8n.sh logs
+
+# Ver status
+./n8n.sh status
+
+# Parar ambiente
+./n8n.sh stop
+
+# Reiniciar
+./n8n.sh restart
+
+# Backup do banco
+./n8n.sh backup
+
+# Entrar no container n8n
+./n8n.sh shell
+```
+
+### Com Docker Compose
+
 ```bash
 # Ver logs
+docker compose logs -f
+# ou (v1)
 docker-compose logs -f
 
 # Parar ambiente
+docker compose down
+# ou (v1)
 docker-compose down
 
 # Reiniciar
+docker compose restart
+# ou (v1)
 docker-compose restart
 
 # Entrar no container n8n
+docker compose exec n8n fish
+# ou (v1)
 docker-compose exec n8n fish
 ```
 
@@ -99,10 +147,14 @@ docker-compose exec n8n fish
 
 ```bash
 # Ver se está rodando
-docker-compose ps
+./n8n.sh status
+# ou
+docker compose ps
 
 # Ver logs
-docker-compose logs n8n
+./n8n.sh logs n8n
+# ou
+docker compose logs n8n
 ```
 
 ### Porta 5678 em uso?

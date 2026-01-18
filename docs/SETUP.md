@@ -37,12 +37,27 @@ newgrp docker
 
 O Docker Compose v2 já vem incluído no Docker Desktop e nas instalações recentes do Docker Engine.
 
+**Linux (se necessário instalar v1)**:
+
+```bash
+# Instalar Docker Compose v1 (legado)
+sudo curl -L "https://github.com/docker/compose/releases/download/v2.24.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+```
+
 Verifique a instalação:
 
 ```bash
 docker --version
+
+# Docker Compose v2 (integrado)
+docker compose version
+
+# ou Docker Compose v1 (standalone)
 docker-compose --version
 ```
+
+**Nota**: Este projeto suporta ambas as versões. A documentação usa `docker compose` (v2), mas você pode usar `docker-compose` (v1) se preferir.
 
 ### Verificação de Recursos
 
@@ -78,12 +93,23 @@ Você deve ver:
 ### 3. Inicie os Serviços
 
 ```bash
+# Recomendado: usar script helper
+chmod +x n8n.sh
+./n8n.sh start
+
+# Ou usar Docker Compose diretamente
+docker compose up -d
+# ou (v1)
 docker-compose up -d
 ```
 
 ### 4. Verifique os Containers
 
 ```bash
+./n8n.sh status
+# ou
+docker compose ps
+# ou (v1)
 docker-compose ps
 ```
 

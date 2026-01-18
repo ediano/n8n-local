@@ -58,6 +58,22 @@ Exemplos práticos e casos de uso reais.
 
 ---
 
+#### [SCRIPT_HELPER.md](SCRIPT_HELPER.md)
+
+Documentação completa do script helper `n8n.sh`.
+
+**Conteúdo**:
+
+- Todos os comandos disponíveis
+- Exemplos de uso
+- Workflows comuns
+- Troubleshooting com script
+- Automação de tarefas
+
+**Para quem**: Todos os usuários que preferem usar o script helper em vez de comandos Docker diretos.
+
+---
+
 #### [FAQ.md](FAQ.md)
 
 Perguntas frequentes e respostas.
@@ -132,8 +148,9 @@ Licença MIT do projeto.
 
 1. [README.md](../README.md) - Visão geral
 2. [SETUP.md](SETUP.md) - Instalação
-3. [EXAMPLES.md](EXAMPLES.md) - Primeiros passos
-4. [FAQ.md](FAQ.md) - Dúvidas comuns
+3. [SCRIPT_HELPER.md](SCRIPT_HELPER.md) - Usar script helper
+4. [EXAMPLES.md](EXAMPLES.md) - Primeiros passos
+5. [FAQ.md](FAQ.md) - Dúvidas comuns
 
 ### 🏗️ Arquiteto/Tech Lead
 
@@ -157,8 +174,9 @@ Licença MIT do projeto.
 
 1. [README.md](../README.md) - Começo
 2. [SETUP.md](SETUP.md) - Instalação
-3. [FAQ.md](FAQ.md) - Ajuda rápida
-4. [EXAMPLES.md](EXAMPLES.md) - Aprender fazendo
+3. [SCRIPT_HELPER.md](SCRIPT_HELPER.md) - Comandos úteis
+4. [FAQ.md](FAQ.md) - Ajuda rápida
+5. [EXAMPLES.md](EXAMPLES.md) - Aprender fazendo
 
 ---
 
@@ -169,8 +187,9 @@ Licença MIT do projeto.
 | Tarefa                 | Documento                             |
 | ---------------------- | ------------------------------------- |
 | Instalar o projeto     | [SETUP.md](SETUP.md)                  |
+| Usar script helper     | [SCRIPT_HELPER.md](SCRIPT_HELPER.md)  |
 | Entender a arquitetura | [ARCHITECTURE.md](ARCHITECTURE.md)    |
-| Fazer backup           | [EXAMPLES.md](EXAMPLES.md)            |
+| Fazer backup           | [SCRIPT_HELPER.md](SCRIPT_HELPER.md)  |
 | Resolver erro comum    | [FAQ.md](FAQ.md)                      |
 | Melhorar segurança     | [SECURITY.md](SECURITY.md)            |
 | Contribuir             | [CONTRIBUTING.md](../CONTRIBUTING.md) |
@@ -178,6 +197,7 @@ Licença MIT do projeto.
 | Criar workflow         | [EXAMPLES.md](EXAMPLES.md)            |
 | Expor para produção    | [SECURITY.md](SECURITY.md)            |
 | Conectar com API       | [EXAMPLES.md](EXAMPLES.md)            |
+| Limpar dados antigos   | [SCRIPT_HELPER.md](SCRIPT_HELPER.md)  |
 
 ---
 

@@ -11,7 +11,7 @@ Este documento resume toda a documentação criada e atualizada para o projeto n
 ```
 n8n-local/
 ├── 📄 README.md                    # Documentação principal (ATUALIZADA)
-├── 🚀 QUICKSTART.md               # Guia de início rápido (NOVO)
+├── 🚀 QUICKSTART.md               # Guia de início rápido (ATUALIZADO)
 ├── 🤝 CONTRIBUTING.md             # Guia de contribuição (NOVO)
 ├── 📝 CHANGELOG.md                # Histórico de mudanças (NOVO)
 ├── 📋 .env.example                # Exemplo de variáveis de ambiente (NOVO)
@@ -19,14 +19,17 @@ n8n-local/
 ├── 📄 LICENSE                     # Licença MIT (EXISTENTE)
 ├── 🐳 docker-compose.yml          # Configuração Docker (EXISTENTE)
 ├── 🐳 Dockerfile.node             # Dockerfile customizado (EXISTENTE)
+├── 🛠️ n8n.sh                      # Script helper bash (EXISTENTE)
 │
 ├── 📚 docs/
-│   ├── 📖 README.md               # Índice da documentação (NOVO)
-│   ├── 🏗️ ARCHITECTURE.md        # Arquitetura técnica (NOVO)
-│   ├── 🔧 SETUP.md                # Guia de instalação (NOVO)
-│   ├── 💡 EXAMPLES.md             # Exemplos práticos (NOVO)
-│   ├── ❓ FAQ.md                  # Perguntas frequentes (NOVO)
-│   └── 🔒 SECURITY.md             # Guia de segurança (NOVO)
+│   ├── 📖 README.md               # Índice da documentação (ATUALIZADO)
+│   ├── 🏗️ ARCHITECTURE.md        # Arquitetura técnica (ATUALIZADO)
+│   ├── 🔧 SETUP.md                # Guia de instalação (ATUALIZADO)
+│   ├── 💡 EXAMPLES.md             # Exemplos práticos (ATUALIZADO)
+│   ├── ❓ FAQ.md                  # Perguntas frequentes (ATUALIZADO)
+│   ├── 🔒 SECURITY.md             # Guia de segurança (NOVO)
+│   ├── 🛠️ SCRIPT_HELPER.md       # Documentação do n8n.sh (NOVO)
+│   └── 📊 SUMMARY.md              # Este arquivo (ATUALIZADO)
 │
 └── 🔧 .devcontainer/
     ├── devcontainer.json          # Configuração Dev Container (EXISTENTE)
@@ -49,13 +52,14 @@ n8n-local/
 - ✅ Exemplos práticos
 - ✅ Avisos de segurança
 
-### 2. QUICKSTART.md (Novo)
+### 2. QUICKSTART.md (Atualizado)
 
-**Tamanho**: ~2KB  
+**Tamanho**: ~3KB  
 **Conteúdo**:
 
 - ✅ Guia de 5 minutos
-- ✅ Comandos essenciais
+- ✅ Comandos essenciais (Docker Compose v2)
+- ✅ Script helper n8n.sh
 - ✅ Primeiro workflow exemplo
 - ✅ Troubleshooting rápido
 - ✅ Próximos passos
@@ -146,29 +150,29 @@ n8n-local/
 - ✅ Guia de atualização
 - ✅ Checklist de instalação
 
-### 10. docs/EXAMPLES.md (Novo)
+### 10. docs/EXAMPLES.md (Atualizado)
 
 **Tamanho**: ~9KB  
 **Conteúdo**:
 
 - ✅ Cenários de uso comuns
 - ✅ Workflows de exemplo
-- ✅ Scripts bash úteis (backup, start, stop, reset, monitor)
-- ✅ Comandos de gerenciamento
+- ✅ Scripts bash úteis (com Docker Compose v2)
+- ✅ Comandos de gerenciamento atualizados
 - ✅ Casos de uso reais
 - ✅ Templates de workflow
 - ✅ Testes e validação
 - ✅ APIs úteis para testes
 
-### 11. docs/FAQ.md (Novo)
+### 11. docs/FAQ.md (Atualizado)
 
 **Tamanho**: ~8KB  
 **Conteúdo**:
 
 - ✅ Perguntas gerais sobre n8n
 - ✅ Configuração e customização
-- ✅ Problemas comuns com soluções
-- ✅ Backup e restauração
+- ✅ Problemas comuns com soluções (Docker Compose v2)
+- ✅ Backup e restauração (com script helper)
 - ✅ Performance e otimização
 - ✅ Segurança
 - ✅ Desenvolvimento
@@ -196,17 +200,51 @@ n8n-local/
 - ✅ Ferramentas de segurança
 - ✅ Checklists periódicos
 
+### 13. docs/SCRIPT_HELPER.md (Novo - Janeiro 2026)
+
+**Tamanho**: ~10KB  
+**Conteúdo**:
+
+- ✅ Documentação completa do script n8n.sh
+- ✅ Todos os comandos disponíveis
+- ✅ Exemplos de uso detalhados
+- ✅ Workflows comuns
+- ✅ Explicação de cada comando
+- ✅ Output esperado de cada operação
+- ✅ Automação de tarefas
+- ✅ Troubleshooting com script
+
+### 14. docs/ARCHITECTURE.md (Atualizado)
+
+**Tamanho**: ~6.5KB  
+**Conteúdo**:
+
+- ✅ Comandos atualizados para Docker Compose v2
+- ✅ Referência ao script helper
+- ✅ Estratégia de backup atualizada
+
 ---
 
 ## 📊 Estatísticas da Documentação
 
 ### Totais
 
-- **Arquivos criados**: 12 documentos
-- **Arquivos atualizados**: 2 documentos
-- **Tamanho total**: ~50KB de documentação
-- **Páginas equivalentes**: ~30 páginas A4
-- **Tempo de leitura estimado**: ~2 horas para ler tudo
+- **Arquivos criados**: 14 documentos
+- **Arquivos atualizados**: 8 documentos
+- **Tamanho total**: ~65KB de documentação
+- **Páginas equivalentes**: ~40 páginas A4
+- **Tempo de leitura estimado**: ~2.5 horas para ler tudo
+
+### Atualização Janeiro 2026
+
+**Melhorias implementadas**:
+
+- ✅ Suporte completo para Docker Compose v2
+- ✅ Documentação do script helper n8n.sh
+- ✅ Compatibilidade retroativa com v1
+- ✅ Instruções atualizadas em todos os documentos
+- ✅ Novo guia SCRIPT_HELPER.md
+- ✅ Índice atualizado no docs/README.md
 
 ### Por Categoria
 

@@ -59,14 +59,18 @@ ports:
 
 ```bash
 # Verificar logs
-docker-compose logs postgres
+./n8n.sh logs postgres
+# ou
+docker compose logs postgres
 
 # Reiniciar serviços
-docker-compose restart
+./n8n.sh restart
+# ou
+docker compose restart
 
 # Se persistir, recriar
-docker-compose down -v
-docker-compose up -d
+docker compose down -v
+docker compose up -d
 ```
 
 ### "n8n não aparece no navegador"
@@ -77,7 +81,9 @@ docker-compose up -d
 
 ```bash
 # Entrar no container
-docker-compose exec n8n fish
+./n8n.sh shell
+# ou
+docker compose exec n8n fish
 
 # Iniciar n8n manualmente
 n8n start
@@ -92,8 +98,11 @@ n8n start
 **Prevenção**:
 
 ```bash
-# Backup do banco
-docker-compose exec postgres pg_dump -U admin n8n_base > backup_$(date +%Y%m%d).sql
+# Usar script helper
+./n8n.sh backup
+
+# Ou backup manual
+docker compose exec postgres pg_dump -U admin n8n_base > backup_$(date +%Y%m%d).sql
 ```
 
 ### Container reinicia constantemente

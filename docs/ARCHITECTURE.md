@@ -97,11 +97,19 @@ POSTGRES_DB: n8n_base # Banco criado na inicialização
 Para fazer backup dos dados:
 
 ```bash
-# Backup do PostgreSQL
+# Usando script helper (Recomendado)
+./n8n.sh backup
+
+# Ou manualmente com Docker Compose v2
+docker compose exec postgres pg_dump -U admin n8n_base > backup.sql
+
+# ou v1
 docker-compose exec postgres pg_dump -U admin n8n_base > backup.sql
 
 # Restaurar backup
-docker-compose exec -T postgres psql -U admin n8n_base < backup.sql
+./n8n.sh restore backup.sql
+# ou
+docker compose exec -T postgres psql -U admin n8n_base < backup.sql
 ```
 
 ## 🌐 Rede
