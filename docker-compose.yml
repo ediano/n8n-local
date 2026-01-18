@@ -7,6 +7,7 @@ services:
     volumes:
       - n8n_data:/home/node/.n8n
     environment:
+      - GENERIC_TIMEZONE=America/Sao_Paulo
       - DB_TYPE=postgresdb
       - DB_POSTGRESDB_DATABASE=n8n_base
       - DB_POSTGRESDB_HOST=postgres
